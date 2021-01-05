@@ -55,7 +55,7 @@
         <h1 id="一、数组-Array"><a href="#一、数组-Array" class="headerlink" title="一、数组 Array"></a>一、数组 Array</h1><blockquote>
 <p>数组是一种线性表数据结构（最多只有向前和向后两个方向），是内存里一段有序的连续的存储区域</p>
 </blockquote>
-<p><img src="./images/array.jpg" alt="数组模型"></p>
+<p><img src="http://ww1.sinaimg.cn/large/65ca5a5cly1gmd3t0mv05j20cl08cjrm.jpg" alt="array.jpg"></p>
 <p>由于是连续的内存空间这就是的数组有一个特性<strong>随机访问</strong>，就是我们可以通过下标随机访问数组元素。申请数组的时候计算机会给每个内存单元分配一个地址，然后通过地址来访问内存中的数据。如果需要访问数组中的某个元素时，就会通过寻址公式（数组通过偏移计算得到的内存地址）来获取该元素的内存地址从而可以访问里面的数据这样的访问速度很快就是<strong>O(1)</strong> 的时间复杂度。</p>
 <p>但是俗话说又得必有失，他在读取快的同时也失去了一些东西，比如说插入和删除就会变的非常低效。</p>
 <h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><p>假设数组长度为 n，要在第 k 位插入一个元素。那么就需要将第 k 到 n 位元素按顺序后移，然后将新元素插入第 k 位。如果好巧不巧要插入第一位，那么所有的元素都需要重新规划，这样**0(n)**的时间复杂度，是一项低效的操作。<br>但是，如果数组中存储的数据没有任何规律，插入后不需要保持原来的顺序，则可以进行如下操作：<br>直接将第 k 位的数据搬移到数组元素最后，然后把新的元素直接放在第 k 位。<br>这样，时间复杂度就被降为了 **O(1)**。<br><img src="https://mmbiz.qpic.cn/mmbiz_gif/viaNga9QpFxgxeUicGS7K0ZicRA9d8ezv8icFpoSJIn02ibLUK2RxsZTTLiaWPicibg4Ph1p0nnR7KZhZWbgeheKF6Kicaw/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1"></p>
