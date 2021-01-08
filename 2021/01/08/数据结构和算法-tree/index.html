@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据结构和算法-tree | 有心人</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="树作为一种树状的数据结构，其数据节点之间的关系也如大树一样，将有限个节点根据不同层次关系进行排列，从而形成数据与数据之间的父子关系。常见的数的表示形式更接近“倒挂的树”，因为它将根朝上，叶朝下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构和算法-tree">
+<meta property="og:url" content="https://wangchaola.github.io/2021/01/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95-tree/index.html">
+<meta property="og:site_name" content="有心人">
+<meta property="og:description" content="树作为一种树状的数据结构，其数据节点之间的关系也如大树一样，将有限个节点根据不同层次关系进行排列，从而形成数据与数据之间的父子关系。常见的数的表示形式更接近“倒挂的树”，因为它将根朝上，叶朝下。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/sunMMn.jpg">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/sunDZ6.jpg">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/suK7vj.jpg">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/suMnRe.jpg">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/su1zwR.md.jpg">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/suGgW6.md.jpg">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/suG5eH.md.gif">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/suGzwj.md.jpg">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/suJe0J.md.gif">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/sur7kT.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/susW4O.gif">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/suc3ge.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/08/suhEjO.png">
+<meta property="article:published_time" content="2021-01-08T06:28:28.000Z">
+<meta property="article:modified_time" content="2021-01-08T08:38:56.054Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/08/sunMMn.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="有心人" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-数据结构和算法-tree" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据结构和算法-tree
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2021/01/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95-tree/" class="article-date">
+  <time datetime="2021-01-08T06:28:28.000Z" itemprop="datePublished">2021-01-08</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>树作为一种树状的数据结构，其数据节点之间的关系也如大树一样，将有限个节点根据不同层次关系进行排列，从而形成数据与数据之间的父子关系。常见的数的表示形式更接近“倒挂的树”，因为它将根朝上，叶朝下。</p>
+<a id="more"></a>
+
+<p>比较常见的一些树名称的种类如下，你能够分清他们的区别吗？</p>
+<ol>
+<li>完全二叉树</li>
+<li>均衡二叉树（平衡）</li>
+<li>有序二叉树</li>
+<li>满二叉树</li>
+<li>二叉搜索树<br>.<br>.<br>.<br>别看树好像很高级，其实可看作是链表的高配版。树的实现就是对链表的next或者pre域进行了扩充，增加了多个地址指向子结点。同时将“链表”竖起来，从而凸显了结点之间的层次关系，更便于分析和理解。<br>树可以衍生出许多的结构，若将指针域设置为双指针，那么即可形成最常见的二叉树，即每个结点最多有两个子树的树结构。二叉树根据结点的排列和数量还可进一度划分为完全二叉树、满二叉树、平衡二叉树、红黑树等</li>
+</ol>
+<h1 id="二叉树（Binary-Tree）"><a href="#二叉树（Binary-Tree）" class="headerlink" title="二叉树（Binary Tree）"></a>二叉树（Binary Tree）</h1><p>二叉树，顾名思义每个节点最多只能包含两个子节点，一个节点可以包含0个，1个，2个节点，如果是两个节点，也就是通常我们说的左节点和右节点</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sunMMn"><img src="https://s3.ax1x.com/2021/01/08/sunMMn.jpg" alt="sunMMn.jpg"></a></p>
+<h1 id="满二叉树（Full-Binary-tree）"><a href="#满二叉树（Full-Binary-tree）" class="headerlink" title="满二叉树（Full Binary tree）"></a>满二叉树（Full Binary tree）</h1><p>满二叉树是二叉树里面一种分类，它的特点是每个节点的子节点节点要么没有，要么就是两个，不允许出现单个子节点的情况<br><a target="_blank" rel="noopener" href="https://imgchr.com/i/sunDZ6"><img src="https://s3.ax1x.com/2021/01/08/sunDZ6.jpg" alt="sunDZ6.jpg"></a></p>
+<h1 id="完全二叉树（Complete-Binary-Tree）"><a href="#完全二叉树（Complete-Binary-Tree）" class="headerlink" title="完全二叉树（Complete Binary Tree）"></a>完全二叉树（Complete Binary Tree）</h1><p>完全二叉树它的特点是每个节点的孩子节点的数量可以是0， 1， 2 个，除此之外它要求每层节点添加，必须是从左到右，不允许跳着添加<br><a target="_blank" rel="noopener" href="https://imgchr.com/i/suK7vj"><img src="https://s3.ax1x.com/2021/01/08/suK7vj.jpg" alt="suK7vj.jpg"></a></p>
+<p>#二叉搜索树 （Ordered Binary Tree ）<br>二叉搜索树，也叫二叉排序数，这个是我们接触的最多的一种结构，它要求节点的左子树小于该节点本身，右子树大于该节点，每个节点都符合这样的规则，意味着二叉树中的数据是排好序的，对二叉搜索树进行中序遍历就得得到一个有序的序列<br><a target="_blank" rel="noopener" href="https://imgchr.com/i/suMnRe"><img src="https://s3.ax1x.com/2021/01/08/suMnRe.jpg" alt="suMnRe.jpg"></a></p>
+<p>#平衡二叉树<br>平衡二叉树又被称为AVL树，它是一棵二叉搜索树，且具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树<br>二叉平衡树的产生是为了解决二叉搜索树在插入时发生线性排列的现象。由于二叉搜索树本身为有序，当插入一个有序程度十分高的序列时，生成的二叉排序树会持续在某个方向的字数上插入数据，导致最终的二叉排序树会退化为链表，从而使得二叉树的查询和插入效率恶化<br><a target="_blank" rel="noopener" href="https://imgchr.com/i/su1zwR"><img src="https://s3.ax1x.com/2021/01/08/su1zwR.md.jpg" alt="su1zwR.md.jpg"></a></p>
+<p>所以 平衡二叉树的出现能够解决上述问题，但是在构造平衡二叉树时，却需要采用不同的调整方式，使得二叉树在插入数据后保持平衡。主要的四种调整方式有LL（左旋）、RR（右旋）、LR（先左旋再右旋）、RL（先右旋再左旋）。</p>
+<blockquote>
+<p>左旋的操作可以用一句话简单表示：将当前结点S的左孩子旋转为当前结点父结点E的右孩子，同时将父结点E旋转为当前结点S的左孩子</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/suGgW6"><img src="https://s3.ax1x.com/2021/01/08/suGgW6.md.jpg" alt="suGgW6.md.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/suG5eH"><img src="https://s3.ax1x.com/2021/01/08/suG5eH.md.gif" alt="suG5eH.md.gif"></a></p>
+<blockquote>
+<p>右旋：S为当前需要左旋的结点，E为当前结点的父节点。右单旋是左单旋的镜像旋转</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/suGzwj"><img src="https://s3.ax1x.com/2021/01/08/suGzwj.md.jpg" alt="suGzwj.md.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/suJe0J"><img src="https://s3.ax1x.com/2021/01/08/suJe0J.md.gif" alt="suJe0J.md.gif"></a></p>
+<h1 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h1><p>多路查找树，其每一个结点的孩子数可以多于两个，且每一个结点处可以存储多个元素。<br>一颗m阶的B树（B-tree） 定义如下</p>
+<ol>
+<li>每个节点最多只有m个子节点</li>
+<li>根节点至少有1个key</li>
+<li>非根节点至少有 ceil(m/2)-1 个key</li>
+<li>每个节点中的key都按照从小到大的顺序排列，每个key的左子树中的所有key都小于它，而右子树中的所有key都大于它</li>
+<li>所有叶子节点都位于同一层，即根节点到每个叶子节点的长度都相同</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sur7kT"><img src="https://s3.ax1x.com/2021/01/08/sur7kT.png" alt="sur7kT.png"></a></p>
+<p>数据生成过程<br><a target="_blank" rel="noopener" href="https://imgchr.com/i/susW4O"><img src="https://s3.ax1x.com/2021/01/08/susW4O.gif" alt="susW4O.gif"></a></p>
+<h1 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h1><p>看名字就知道B+树在B树的基础上做了优化，它与B树的差异在于</p>
+<ol>
+<li>有 k 个子节点的节点必然有 k 个key；</li>
+<li>非叶子节点仅具有索引作用，跟记录有关的信息均存放在叶子节点中</li>
+<li>树的所有叶子节点构成一个有序链表，可以按照key排序的次序遍历全部记录</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/suc3ge"><img src="https://s3.ax1x.com/2021/01/08/suc3ge.png" alt="suc3ge.png"></a><br>所以，B和B+树的区别在于，B+树的非叶子结点只包含索引信息，不包含实际的值，所有的叶子结点和相连的节点使用链表相连，便于区间查找和遍历</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">B+树的优点在于：</span><br><span class="line">1.由于B+树在内部节点上不包含数据信息，因此在内存页中能够存放更多的key。 </span><br><span class="line">  数据存放的更加紧密，具有更好的空间局部性。</span><br><span class="line">  因此访问叶子节点上关联的数据也具有更好的缓存命中率。</span><br><span class="line">2.B+树的叶子结点都是相链的，因此对整棵树的便利只需要一次线性遍历叶子结点即可。</span><br><span class="line">  而且由于数据顺序排列并且相连，所以便于区间查找和搜索。</span><br><span class="line">  而B树则需要进行每一层的递归遍历，相邻的元素可能在内存中不相邻，所以缓存命中性没有B+树好</span><br></pre></td></tr></table></figure>
+
+<p>#树的应用<br>在MySQL中，索引属于存储引擎级别的概念，不同存储引擎对索引的实现方式是不同的，来说一下InnoDB两个存储引擎</p>
+<p>##InnoDB索引实现<br>InnoDB的数据文件本身就是索引文件，而在InnoDB中，表数据文件本身就是按B+Tree组织的一个索引结构，这棵树的叶节点data域保存了完整的数据记录。这个索引的key是数据表的主键，因此InnoDB表数据文件本身就是主索引<br><a target="_blank" rel="noopener" href="https://imgchr.com/i/suhEjO"><img src="https://s3.ax1x.com/2021/01/08/suhEjO.png" alt="suhEjO.png"></a><br>可以看到叶节点包含了完整的数据记录。这种索引叫做聚集索引。因为InnoDB的数据文件本身要按主键聚集，所以InnoDB要求表必须有主键（MyISAM可以没有），如果没有显式指定，则MySQL系统会自动选择一个可以唯一标识数据记录的列作为主键，如果不存在这种列，则MySQL自动为InnoDB表生成一个隐含字段作为主键</p>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/01/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84%E5%92%8C%E9%93%BE%E8%A1%A8%E4%BA%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据结构和算法-数组和链表之链表</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        <aside id="sidebar">
+  <nav class="menus">
+  	<ul>
+  		<li><a href="/"><i class="icon icon-home"></i></a></li>
+  		
+			<li><a href="/archives"><i class="icon icon-fenlei"></i></a></li>
+  		
+  		
+			<li><a href="/tags"><i class="icon icon-tag"></i></a></li>
+  		
+  		
+  			<li><a href="https://github.com/wangchaola" target="_blank"><i class="icon icon-github"></i></a></li>
+  		
+  	</ul>
+  </nav>
+  <a id="go-top" href="#"><i class="icon icon-up"></i></a>
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+	<div id="footer-info" class="inner">
+	  &copy; 2021 有心人 
+	  - Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  - Theme <a href="https://github.com/hejianxian/hexo-theme-jane/" target="_blank">Jane</a>
+	</div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tag</a>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/wangchaola" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
